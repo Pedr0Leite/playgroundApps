@@ -1,0 +1,39 @@
+.title{
+    margin-top: 10px ;
+    text-align: center;
+}
+
+body.body_css{
+    background: linear-gradient(to right, rgb(212, 65, 65), rgb(237, 245, 241));
+}
+
+div.container{
+    margin-top: 10vh;
+    background: transparent;
+    text-align: center;
+    width: 50%;
+    font-weight: bold;
+}
+
+input.ghost-input{
+margin-right: 10px;
+margin-left: 10px;
+text-align: center;
+}
+
+input.btn.btn-info{
+    margin-top: 5px;
+    margin-bottom: 25px;
+    align-content: center;
+}
+
+input.btn.btn-secondary{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    align-content: center;
+}
+
+li.ticket_numbers {
+    list-style-type: none;
+    text-align: left;
+}

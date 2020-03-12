@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - AngularJS Calculator</title>
+  <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body class="body">
+<!-- partial:index.partial.html -->
+<div class="everyhing" ng-app="customApp" ng-controller="calcController">
+  <div class="calcBody">
+      <form name="form">
+        <input type="text" name="output" class="monitor" ng-model="output"></input>
+      </form>
+      <table>
+        <tr>  
+        <td><button type="button" name="btn7" ng-click="addValue(7)" class="button">7</button></td>
+        <td><button type="button" name="btn8" ng-click="addValue(8)" class="button">8</button></td>
+        <td><button type="button" name="btn9" ng-click="addValue(9)" class="button">9</button></td>
+        <td><button type="button" name="clearBtn" ng-click="clearValue()" class="clearButton">C</button></td>
+        </tr>  
+        </table>
+       <table>
+        <tr>  
+        <td><button type="button" name="btn4" ng-click="addValue(4)" class="button">4</button></td>
+        <td><button type="button" name="btn5" ng-click="addValue(5)" class="button">5</button></td>
+        <td><button type="button" name="btn6" ng-click="addValue(6)" class="button">6</button></td>
+        <td><button type="button" name="minusBtn" ng-click="otherOperation('-')" class="button">-</button></td>
+        </tr>  
+        </table>
+       <table>
+        <tr>  
+        <td><button type="button" name="btn" ng-click="addValue(1)" class="button">1</button></td>
+        <td><button type="button" name="btn" ng-click="addValue(2)" class="button">2</button></td>
+        <td><button type="button" name="btn" ng-click="addValue(3)" class="button">3</button></td>
+        <td><button type="button" name="addBtn" ng-click="otherOperation('+')" class="button">+</button></td>
+        </tr>  
+        </table>
+     <table>
+        <tr>  
+        <td><button type="button" name="btn" ng-click="addValue('*')" class="button" >X</button></td>
+        <td><button type="button" name="btn" ng-click="addValue(0)" class="button">0</button></td>
+        <td><button type="button" name="btn" ng-click="addValue('.')" class="button" >.</button></td>
+        <td><button type="button" name="divideBtn" ng-click="otherOperation('/')" class="button">/</button></td>
+        </tr>  
+        </table>
+  <table>
+        <tr>
+        <td><button type="button" name="equalBtn" ng-click="otherOperation('=')" class="buttonEqual" value="=">=</button></td>
+        </tr>  
+        </table>
+    </div>
+</div>
+  </body>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js'></script>
+<script src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
