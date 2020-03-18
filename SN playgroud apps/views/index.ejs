@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Testing ServiceNow App</title>
-    <script src="../client/functions_for_html.js" type="text/javascript"></script>
+    <!-- <script src="../client/functions_for_html.js" type="text/javascript"></script> -->
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -34,7 +34,7 @@
               <% for(var i=0;i<ticketNumber.length;i++) { %>
                   <li class="ticket_numbers">
                       <%= ticketNumber[i] %>
-                      <form action="/edit_ticket" method="GET">
+                      <form action='/edit_ticket/1' method="GET">
                       <input type="submit" class="btn btn-secondary" value="Edit">
                     </form>
                   </li>

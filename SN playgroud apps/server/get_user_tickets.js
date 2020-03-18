@@ -42,6 +42,8 @@ const instanceURL = credentials.snInstance;
 const userName = credentials.userName;
 const passWord = credentials.passWord;
 
+
+
 async function getUserTickets(sysID) {
 
   if (sysID != null && sysID != "null") {
@@ -59,12 +61,18 @@ async function getUserTickets(sysID) {
       // console.log(tickets.data);
       
       var ticketNumbers = [];
+      var ticket_Sysid = [];
+
       tickets.data.result.forEach(ticket => {
         ticketNumbers.push(`The record ${ticket.number}: "${ticket.short_description}" has an Impact of: ${ticket.impact}, Urgency of: ${ticket.urgency} and Priority of: ${ticket.priority}. 
         The last time it was updated: ${ticket.sys_updated_on}`);
 
+        ticket_Sysid.push(ticket.sys_id);
+        
+
       });
-      return ticketNumbers;
+
+      return {ticketNumbers, ticket_Sysid}
     } catch (err) {
       console.log("AN ERROR HAS OCCURRED IN USER TICKETS:", err);
     }
@@ -72,5 +80,8 @@ async function getUserTickets(sysID) {
     return "";
   }
 }
+
+
+
 
 module.exports = { getUserTickets };
