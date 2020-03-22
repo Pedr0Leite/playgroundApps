@@ -5,7 +5,8 @@ var getUserSysId = require("./get_user_sys_id");
 getUserSysId = getUserSysId.getUserSysId;
 var getUserTickets = require("./get_user_tickets");
 getUserTickets = getUserTickets.getUserTickets;
-var edit_page = require("./edit_ticket"); //edit ticket module
+var intro_page = require("./intro_page"); //edit ticket module
+var ticketPage = require("./ticketPage");
 
 //Node modules
 // const request = require("request");
@@ -17,17 +18,29 @@ var app = express();
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use("/edit_ticket", edit_page);
+app.use("/", intro_page);
+app.use("/ticketPage", ticketPage);
 
-//Render Index page
+
+//Render Intro ticket page
 app.get("/", (req, res) => {
-  res.render("index", {
+  res.render("intro_page");
+});
+
+
+app.post("/", async (req, res) => {
+})
+
+
+//Render ticketPage page
+app.get("/ticketPage", (req, res) => {
+  res.render("ticketPage", {
     ticketInfo: null
   });
 });
 
 //Post sys_id of input user
-app.post("/", async (req, res) => {
+app.post("/ticketPage", async (req, res) => {
   let fName = req.body.firstName.toLowerCase();
   let lName = req.body.lastName.toLowerCase();
 
@@ -50,28 +63,14 @@ app.post("/", async (req, res) => {
   } else {
     finalInfoOfRecords = `The user ${fName} ${lName} doesn't have any ticket assigned to him/her.`;
   }
-
-  res.render("index", {
+  
+  res.render("ticketPage", {
     ticketInfo: finalInfo,
     ticketInfoText: finalInfoOfRecords,
     ticketNumber: recordsOfUser.ticketNumbers,
     ticketSysID: recordsOfUser.ticket_Sysid
   });
 });
-
-
-//Render Edit ticket page
-app.get("/edit_ticket/:ticket_sysid", (req, res) => {
-  res.render("edit_ticket", 
-  {
-    value: "Just testing values",
-    ticket_sysid: null
-  });
-});
-
-app.post("/edit_ticket/", async (req, res) => {
-
-})
 
 //generate the localhost
 app.listen(3000, err => {

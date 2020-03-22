@@ -5,47 +5,28 @@ const instanceURL = credentials.snInstance;
 const userName = credentials.userName;
 const passWord = credentials.passWord;
 
-const number = "INC0000060";
+const numberSysid = "57789773db32001064fdf26b68961907";
+var requestBody = '{"work_notes":"Test"}';
 
-async function getTicketSysId(number) {
-  const response = await axios.get(
-    `${instanceURL}api/now/table/incident?sysparm_query=number&sysparm_display_value=${number}&sysparm_limit=1`,
+async function postInfo(numberSysid) {
+  const response = await axios.patch(
+    `${instanceURL}api/now/table/incident/${numberSysid}`,
     {
       auth: {
         username: userName,
         password: passWord
+      },
+      data: {
+        requestBody
       }
     }
-  );
+    );
 
-  const ticketSys_Id = response.data;
-  // console.log('ticketSys_Id :', ticketSys_Id);
-  return ticketSys_Id.result[0].sys_id;
-}
+    const responseFromServer = response.data;
+    console.log('responseFromServer :', responseFromServer);
 
-const ticketSys_Id = getTicketSysId(number).then(value => {
-  console.log(value);
-  return value;
-});
+    return responseFromServer;
+  }
 
-console.log('asdas:', ticketSys_Id);
-
-// async function changeFieldValues(ticketSys_Id) {
-//     const response = await axios.patch(
-//       `${instanceURL}api/now/table/incident?sysparm_query=user_name%3D${ticketSys_Id}`,
-//       {
-//         auth: {
-//           username: userName,
-//           password: passWord
-//         },
-//         data: {
-//             "short_description": "change test"
-//         }
-//       }
-//     ).then(response=>{
-//         console.log(response)
-//     });
-
-// }
-
-// console.log(changeFieldValues(ticketSys_Id));
+  console.log('postInfo :', postInfo(numberSysid));
+  

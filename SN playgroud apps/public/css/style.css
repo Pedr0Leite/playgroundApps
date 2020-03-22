@@ -37,3 +37,44 @@ li.ticket_numbers {
     list-style-type: none;
     text-align: left;
 }
+
+/* Matrix Part */
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body.home {
+    background: #000;
+  }
+  canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  
+  div.welcome {
+    margin-top: 100px;
+  }
+  
+  h1.intro {
+    color: white;
+    display: block;
+    margin-left: center;
+    text-align: center;
+    margin-right: center;
+  }
+  
+  div.buttonPlace {
+    margin-right: center;
+    margin-left: center;
+    text-align: center;
+    display: block;
+  }
+
+  h1.test {
+    color: green;
+  }

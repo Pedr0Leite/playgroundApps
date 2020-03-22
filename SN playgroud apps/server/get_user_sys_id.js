@@ -29,7 +29,7 @@ async function getUserSysId(var1, var2) {
       const user = response.data.result[0].sys_id;
       return user;
     } else {
-      return null;
+      return undefined;
     }
   } catch (err) {
     //reject
