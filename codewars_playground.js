@@ -70,3 +70,52 @@ function narcissistic(value) {
 
 console.log('narcissistic :', narcissistic(2345));
 
+//-------
+// There must be a function for each number from 0 ("zero") to 9 ("nine")
+// There must be a function for each of the following mathematical operations: plus, minus, times, dividedBy (divided_by in Ruby and Python)
+// Each calculation consist of exactly one operation and two numbers
+// The most outer function represents the left operand, the most inner function represents the right operand
+// Divison should be integer division. For example, this should return 2, not 2.666666...:
+
+function theNumber(num, func){
+    if(func === undefined){
+      return num;
+    }else{
+      return func(num);
+    }
+  }
+  
+  function zero(func) {return theNumber(0, func);}
+  function one(func) {return theNumber(1, func);}
+  function two(func) {return theNumber(2, func)}
+  function three(func) {return theNumber(3, func)}
+  function four(func) {return theNumber(4, func)}
+  function five(func) {return theNumber(5, func);}
+  function six(func) {return theNumber(6, func)}
+  function seven(func) {return theNumber(7, func)}
+  function eight(func) {return theNumber(8, func)}
+  function nine(func) {return theNumber(9, func)}
+  
+  function plus(x) {
+    return function(y){
+      return y + x;
+      };
+      }
+  function minus(x) {
+    return function(y){
+      return y - x;
+      };
+      }
+  function times(x) {
+    return function(y){
+      return y * x;
+      };
+      }
+  function dividedBy(x) {
+    return function(y){
+      return Math.floor(y / x);
+      };
+      }
+  
+  one(plus(five()));
+
