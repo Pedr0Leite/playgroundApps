@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-model="myApp">
+<head>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js'></script>
+</head>
+<body ng-app="myApp">
+    <h1 ng-controller="HelloWorldCtrl">{{message}}</h1>
+
+    <div ng-controller="SpicyController">
+        <button ng-click="chiliSpicy()">Chili</button>
+        <button ng-click="jalapenoSpicy()">Jalapeño</button>
+        <p>The food is {{spice}} spicy!</p>
+       </div>
+
+       <h2>Corona Info</h2>
+       <div ng-controller="httpController">
+
+        {{coronaInfo}}
+
+       </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+<script src="controllerONE.js"></script>
+<script src="controllerTWO.js"></script>
+</html>
