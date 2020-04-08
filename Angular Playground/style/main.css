@@ -1,0 +1,51 @@
+h1,
+h2,
+form,
+.mix_controller,
+tr,
+th,
+.subTitle {
+  text-align: center;
+  font-family: Arial;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: rgb(89, 201, 152);
+  color: rgb(0, 0, 0);
+  text-transform: capitalize;
+  border: 2px solid black;
+}
+
+td {
+  border: 2px solid black;
+  color: black;
+  background-color: white;
+}
+
+.body,
+body {
+  background-color: grey;
+}
+
+.imgCenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 5%;
+  height: auto;
+}
