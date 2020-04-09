@@ -2,6 +2,7 @@ body{
     margin: 0px;
     padding: 0px;
     color: var(--text);
+    font-family: 'Montserrat', sans-serif;
     background: var(--bg);
     transition: background 500ms ease-in-out, color 1000ms ease-in-out;
 }
@@ -47,7 +48,7 @@ header{
     width: 500px;
     opacity: 0;
     z-index: 2;
-    background: var(--bg-nav);
+    background: var(--bg-dropdown);
     border-top: 2px solid var(--border-color);
     
     border-bottom-right-radius: 8px;
@@ -84,7 +85,7 @@ header{
     content: ' ';
     border: 2px solid var(--border-color);
     border-radius: 50%;
-    /* background-color: black; */
+    background-color: var(--bg-dropdown);
     width: 2rem;
     height: 2rem;
     display: inline-block;
@@ -131,4 +132,26 @@ header{
     --gray4: #3ea565;
     --gray5: #005368;
     --gray6: #003d4c;
+}
+
+#dark::before {
+    background: #2a2e35;
+}
+
+#light::before {
+    background: #ffffff;
+}
+
+#solar::before {
+    background: var(--bg-solar);
+}
+
+
+@keyframes color-rotate{
+    from{
+        filter: hue-rotate(0deg);
+    }
+    to{
+        filter: hue-rotate(360deg);
+    }
 }
