@@ -1,0 +1,308 @@
+:root {
+    --color-vividblue: #0ea7e3;
+    --color-kindofRed: #c31d10;
+    --main-color: linear-gradient(
+      35deg,
+      var(--color-vividblue),
+      var(--color-kindofRed)
+    );
+    /* body */
+    --color-grayish: #587997;
+    --color-grayish2: #444444;
+    /* Contact */
+    --color-lightRed: #c25452;
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-redIcon: #d62a36;
+    --color-blueIcon: #1a50bc;
+    --color-gray0: #f8f8f8;
+    --color-gray1: #dbe1e8;
+    --color-gray2: #b2becd;
+    --color-gray3: #6c7983;
+    --color-gray4: #454e56;
+    --color-gray5: #2a2e35;
+    --color-gray6: #12181b;
+    --color-blue: #0084a5;
+    --color-purple: #a82dd1;
+    --color-yellow: #fff565;
+
+  }
+
+  /* ----- */
+  /* ----- */
+  .light{
+  --body-bgC: var(--color-grayish);
+  --first-bgC: var(--main-color);
+  --first-c: var(--color-white);
+  --nav-a: var(--color-white);
+  --icon-sun: var(--color-yellow);
+  --logo-border: var(--color-white);
+  --logo-iconFooter-blue: var(--color-blueIcon);
+  --logo-iconFooter-red: var(--color-redIcon);
+  --main-headers-color: var(--color-white);
+  --prj-tile: var(--color-white);
+  --prj-tile-boxShadow: 0 20px 20px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.25);
+  --footer-bgC: var(--color-lightRed);
+  --headers-h3h5: var(--color-black);
+  --icon-github: var(--color-grayish2);
+  }
+  
+  
+  body {
+    background-color: var(--color-grayish);
+    font-family: "Orbitron", sans-serif;
+  }
+  
+  /* First Div */
+  .firstPart {
+    background: var(--main-color);
+    clip-path: polygon(50% 0, 100% 0, 100% 65%, 50% 100%, 0 65%, 0 0);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: var(--color-white);
+  }
+  
+  /* Navbar */
+  #navbar {
+    z-index: 99;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    flex-wrap: wrap;
+  }
+  
+  #navbar a {
+    text-decoration: none;
+    color: var(--color-white);
+    padding: 10px;
+  }
+  
+  /* picture and title */
+  #title {
+    padding-top: 5px;
+  }
+  
+  .logo {
+    border-radius: 10px;
+    border: 10px solid;
+    border-color: vwhite;
+  }
+  
+  #welcome-section {
+    margin-top: 50px;
+    padding: 1em;
+    margin-bottom: 1em;
+    padding-bottom: 3.5em;
+    text-align: center;
+    height: 676px;
+  }
+  
+  .logo {
+    border-radius: 5px;
+    border: 10px solid;
+    border-color: white;
+    animation: border-color 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+  
+  /* Dark/Light Icon */
+  .fa-sun {
+    visibility: hidden;
+  }
+  
+  .fa-moon {
+    visibility: visible;
+  }
+  
+  #subtitle-mobile {
+    display: none;
+  }
+  
+  @keyframes border-color {
+    0% {
+      border-color: var(--color-vividblue);
+    }
+    50% {
+      border-color: var(--color-kindofRed);
+    }
+    100% {
+      border-color: var(--color-vividblue);
+    }
+  }
+  /* All sections unless the welcome one */
+  #otherSections {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  
+  /* About me */
+  #about {
+    margin-top: 100px;
+    margin-bottom: 50px;
+    align-self: center;
+    width: 100%;
+    height: 100vh;
+    color: var(--color-white);
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+  
+  /* Projects */
+  #projects {
+    display: grid;
+    width: 100%;
+    height: 150vh;
+    margin-bottom: auto;
+  }
+  
+  #projects-title {
+    text-align: center;
+    color: var(--color-white);
+  }
+  
+  .rowContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-evenly;
+    padding: 1px;
+    width: 100%;
+    color: var(--color-white);
+  }
+  
+  .project-tile {
+    border: 5px solid;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.25);
+  }
+  
+  .prjImg {
+    width: 350px;
+    heigth: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+  
+  #contacts {
+    margin-top: 50px;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 50vh;
+    background-color: var(--color-lightRed);
+  }
+  
+  #icons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-evenly;
+  }
+  
+  .btn {
+    transform: scale(3);
+  }
+  
+  h5,
+  h3 {
+    text-align: center;
+    color: var(--color-black);
+  }
+  
+  #contactMail {
+    text-decoration: none;
+  }
+  
+  .btn-github {
+    color: #444444;
+    text-decoration: none;
+  }
+  .btn-github:hover,
+  .btn-linkedin:hover,
+  .contact-details:hover {
+    color: var(--color-redIcon);
+  }
+  
+  #profile-link:hover {
+    color: var(--color-blueIcon);
+  }
+  
+  .btn-linkedin {
+    text-decoration: none;
+  }
+  
+  footer {
+    padding-top: 20px;
+    text-align: center;
+    width: 100%;
+    background-color: var(--color-lightRed);
+  }
+  
+  /* Media query */
+  
+  @media only screen and (max-width: 1100px) {
+    #projects {
+      height: 100%;
+    }
+    #about {
+      height: 100%;
+      margin-top: 100px;
+      margin-bottom: 200px;
+    }
+  }
+  
+  @media only screen and (max-width: 920px) {
+    .firstPart {
+      /*     This needs improvment in the shape */
+      clip-path: polygon(
+        100% 0px,
+        100% 372px,
+        76.37% 98.91%,
+        22.03% 98.77%,
+        0px 65%,
+        0px 0px
+      );
+    }
+  
+    img,
+    .project-tile {
+      transform: scale(0.8);
+    }
+    #contacts {
+      /*     margin-top: 500px; */
+    }
+    h3 {
+      font-size: medium;
+    }
+    #projects {
+      margin-top: 70px;
+    }
+    #about {
+      /* height: 80%; */
+      margin-top: 100px;
+      /*     still needs to be fixed here */
+    }
+  }
+  
+  @media only screen and (max-width: 510px) {
+    #subtitle {
+      display: none;
+    }
+    #subtitle-mobile {
+      display: block;
+    }
+  }

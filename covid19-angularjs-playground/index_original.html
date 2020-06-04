@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-model="myApp">
+<head>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel='stylesheet' type='text/css' media='screen' href='./style/main.css'>
+</head>
+<body>
+    <div class="body">
+        <h1 ng-controller="HelloWorldCtrl">{{message}}</h1>
+        <img src="https://www.cienciaviva.pt/covid19/img/corona.png" class="imgCenter">
+        <h2>Type the name of the Country (or the country code)</h2>
+        <p class="subTitle">Leave it blank to see information about all countries</p>
+        <!-- <div ng-controller="inputController"> -->
+        <div ng-controller="mixController" class="mix_controller">
+          <form>
+            <input type="text" id="text" name="text" required ng-model="country" ng-init="here">
+            </p>
+            <input type="button" id="submit" value="Submit" ng-click="submit(country)" class="btn btn-warning btn-sm">
+            <!--ng-hide="!country" to hide the button if input is empty-->
+            <br>
+            <p></p>
+            <div ng-show="!country">Filter by Country Name:
+              <p></p>
+              <input type="text" ng-model="customerFilter.country" /></div>
+          </form>
+          <p></p>
+          <p></p>
+          <h3>COVID-19 World and Country Information</h3>
+          <!--     worldStats: {{worldStats}} -->
+          <table align="center" cellspacing="5" class="table">
+            <!--            This is working already -->
+            <tr>
+              <th ng-repeat="x in countryInfo_keys">
+                {{x}}
+              </th>
+            </tr>
+            <tr>
+              <td ng-repeat="y in worldStats">
+                {{y}}
+              </td>
+            </tr>
+            <tr ng-repeat="z in info | filter:customerFilter">
+              <td>{{z.country}}</td>
+              <td>{{z.cases}}</td>
+              <td>{{z.todayCases}}</td>
+              <td>{{z.deaths}}</td>
+              <td>{{z.todayDeaths}}</td>
+              <td>{{z.recovered}}</td>
+              <td>{{z.active}}</td>
+              <td>{{z.critical}}</td>
+              <td>{{z.casesPerOneMillion}}</td>
+              <td>{{z.deathsPerOneMillion}}</td>
+              <td>{{z.tests}}</td>
+              <td>{{z.testsPerOneMillion}}</td>
+              <td>{{z.confirmed}}</td>
+            </tr>
+          </table>
+          <p></p>
+          </br>
+        </div>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/X.Y.Z/angular-route.js"></script>
+  <script src="controller/appController.js"></script>
+  <script src="./controller/controllerONE.js"></script>
+</html>

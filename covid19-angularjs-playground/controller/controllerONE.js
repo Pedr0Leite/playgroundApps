@@ -3,6 +3,7 @@ var myApp = angular.module("myApp", []);
 myApp.controller("HelloWorldCtrl", function ($scope) {
   $scope.message = "Welcome to COVID-19 Information World vs specific Country";
 });
+
 myApp.controller("mixController", [
   "$scope",
   "$http",
@@ -27,11 +28,7 @@ myApp.controller("mixController", [
         )
         .then(function successCallback(response) {
           var infoFromServer = response.data;
-          // if($scope.info == undefined){
           $scope.info = infoFromServer.data;
-          //         }else{
-
-          //         }
 
           //World
           $scope.worldStats = infoFromServer.worldStats;
