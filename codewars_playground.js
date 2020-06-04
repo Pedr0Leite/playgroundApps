@@ -143,3 +143,97 @@ function rot13(str) {
     }
     
     // console.log(rot13("EBG13 rknzcyr."));
+
+    //-------------------
+    //The Hashtag Generator
+
+//     " Hello there thanks for trying my Kata"  =>  "#HelloThereThanksForTryingMyKata"
+// "    Hello     World   "                  =>  "#HelloWorld"
+// ""                                        =>  false
+
+var test1 = "Looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong Cat"
+var test2 = "";
+var test3 = " Hello there thanks for trying my Kata                           ";
+var test4 = "code" + " ".repeat(140) + "wars";
+var test5 = " ".repeat(200);
+var test6 = "Do We have A Hashtag";
+
+    function generateHashtag(str) {
+        let finalStr = [];
+        str = str.replace(/\s+/g, " ");
+        if(str.length < 1 || str.length >= 140 || !str.replace(/\s/g, '').length){
+            return false
+        }else{
+        let temp_str = str.trim().split(" ");
+        for(var i = 0; i < temp_str.length; i++){
+            finalStr.push(temp_str[i][0].toUpperCase()+temp_str[i].slice(1));
+        }
+        return "#" + finalStr.join("");
+    }
+}
+
+// console.log('generateHashtag(test1) :', generateHashtag(test1));
+// console.log('generateHashtag(test2) :', generateHashtag(test2));
+// console.log('generateHashtag(test3) :', generateHashtag(test3));
+// console.log('generateHashtag(test4) :', generateHashtag(test4));
+// console.log('generateHashtag(test5) :', generateHashtag(test5));
+// console.log('generateHashtag(test6) :', generateHashtag(test6));
+
+
+//Sum Strings as Numbers
+// sumStrings('1','2') // => '3'
+
+function sumStrings(a,b) {
+    let numberOne = Number(a);
+    let numberTwo = Number(b); 
+    let sum_of_numbers = (numberOne + numberTwo);
+    console.log('sum_of_numbers :', BigInt(sum_of_numbers));
+    return sum_of_numbers.toString();
+}
+
+// console.log(sumStrings('123','456')); //'579'
+// console.log(sumStrings('712569312664357328695151392','8100824045303269669937')); //712577413488402631964821329
+
+//ITS STILL NOT DONE!!!!
+
+
+
+//Next smaller number with the same digits
+// nextSmaller(21) == 12
+// nextSmaller(531) == 513
+// nextSmaller(2071) == 2017
+// nextSmaller(9) == -1
+// nextSmaller(111) == -1
+// nextSmaller(135) == -1
+// nextSmaller(1027) == -1 // 0721 is out since we don't write numbers with leading zeros
+
+function nextSmaller(n) {
+    let arrayOfNumbers = n.toString().split("");
+    // console.log('arrayOfNumbers :', arrayOfNumbers);
+    if(n.length > 1 || arrayOfNumbers.every(x => x === arrayOfNumbers[0]) == true){
+        return -1;
+    }else{
+        // let combinationsOfNumbers = arrayOfNumbers.flatMap((x,i) => arrayOfNumbers.slice(i+1).map(y => x + y));
+        // console.log('combinationsOfNumbers :', combinationsOfNumbers);
+        let combinationsOfNumbers = [];
+        //https://codereview.stackexchange.com/questions/7001/generating-all-combinations-of-an-array
+        //Build getCombinations() and then remove from array all values with length < number
+        let lowestNumber = Math.min(...combinationsOfNumbers);
+        // console.log('lowestNumber :', lowestNumber);
+        if(lowestNumber[0] == 0){
+            return -1;
+        }else{
+            return lowestNumber;
+        }
+        
+    }
+    
+  }
+
+
+//   console.log('21: ' + nextSmaller(21));
+//   console.log('531: ' + nextSmaller(531));
+  console.log('1027: ' + nextSmaller(1027));
+//   console.log('9: ' + nextSmaller(9));
+//   console.log('135: ' + nextSmaller(135));
+//   console.log('111: ' + nextSmaller(111));
