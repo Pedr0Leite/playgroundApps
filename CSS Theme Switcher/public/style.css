@@ -156,6 +156,27 @@ header{
     }
 }
 
+/* @keyframes flash_border {
+    0% {
+      border-color: red;
+    }
+    50% {
+      border-color: black;
+    }
+    100% {
+      border-color: red;
+    }
+  }
+
+.logo{
+    border: 10px solid;
+    border-color: red;
+  animation-name: flash_border;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+} */
+
 .logo:hover{
     animation: color-rotate 1s;
     animation-iteration-count: infinite;

@@ -1,0 +1,119 @@
+body {
+    background: linear-gradient(
+      90deg,
+      rgba(131, 58, 180, 1) 0%,
+      rgba(253, 29, 29, 1) 50%,
+      rgba(252, 176, 69, 1) 100%
+    );
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  
+  h1,
+  h2 {
+    text-align: center;
+  }
+  
+  .buttonDiv {
+    text-align: center;
+  }
+  
+  .grid {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
+    width: 618px;
+    height: 618px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .square {
+    width: 200px;
+    height: 200px;
+    border-style: solid;
+    border-color: white;
+  }
+  
+  .mole {
+    background-image: url("https://github.com/kubowania/whack-a-mole/blob/master/mole.jpg?raw=true");
+    background-size: cover;
+  }
+  
+  .startButton {
+    display: flex;
+  }
+  
+  @media screen and (max-width: 655px) {
+    h1,
+    h2 {
+      color: white;
+      transform: scale(0.6);
+      margin: 0;
+      top: 0px;
+    }
+    .subText {
+      display: flex;
+      flex-flow: row wrap;
+    }
+  
+    #score,
+    #time-left {
+      flex: 1;
+    }
+  
+    .grid {
+      background-color: white;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      grid-column-gap: 0px;
+      grid-row-gap: 0px;
+      align-items: center;
+      height: auto;
+      width: auto;
+      margin-top: 5px;
+      align-content: space-between;
+    }
+    .mole {
+      transform: scale(auto);
+    }
+    .square {
+      border-color: black;
+      flex-basis: auto;
+      max-width: 35vw;
+      max-height: 20vh;
+      margin: 0 auto;
+    }
+    #1 {
+      grid-area: 1 / 1 / 2 / 2;
+    }
+    #2 {
+      grid-area: 1 / 2 / 2 / 3;
+    }
+    #3 {
+      grid-area: 1 / 3 / 2 / 4;
+    }
+    #4 {
+      grid-area: 2 / 1 / 3 / 2;
+    }
+    #5 {
+      grid-area: 2 / 2 / 3 / 3;
+    }
+    #6 {
+      grid-area: 2 / 3 / 3 / 4;
+    }
+    #7 {
+      grid-area: 3 / 1 / 4 / 2;
+    }
+    #8 {
+      grid-area: 3 / 2 / 4 / 3;
+    }
+    #9 {
+      grid-area: 3 / 3 / 4 / 4;
+    }
+  }
+  
