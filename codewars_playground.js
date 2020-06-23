@@ -179,7 +179,7 @@ var test6 = "Do We have A Hashtag";
 // console.log('generateHashtag(test5) :', generateHashtag(test5));
 // console.log('generateHashtag(test6) :', generateHashtag(test6));
 
-
+ //-------------------------------------------------------------------------------------------
 //Sum Strings as Numbers
 // sumStrings('1','2') // => '3'
 
@@ -196,6 +196,7 @@ function sumStrings(a,b) {
 
 //ITS STILL NOT DONE!!!!
 
+ //-------------------------------------------------------------------------------------------
 
 
 //Next smaller number with the same digits
@@ -213,27 +214,79 @@ function nextSmaller(n) {
     if(n.length > 1 || arrayOfNumbers.every(x => x === arrayOfNumbers[0]) == true){
         return -1;
     }else{
-        // let combinationsOfNumbers = arrayOfNumbers.flatMap((x,i) => arrayOfNumbers.slice(i+1).map(y => x + y));
-        // console.log('combinationsOfNumbers :', combinationsOfNumbers);
-        let combinationsOfNumbers = [];
-        //https://codereview.stackexchange.com/questions/7001/generating-all-combinations-of-an-array
-        //Build getCombinations() and then remove from array all values with length < number
-        let lowestNumber = Math.min(...combinationsOfNumbers);
-        // console.log('lowestNumber :', lowestNumber);
-        if(lowestNumber[0] == 0){
+        function combinations(numbers){
+                let combinationOfNumbers = [];
+                for (let i = 0; i < numbers.length; i++) {
+                let rest = combinations(numbers.slice(0, i).concat(numbers.slice(i + 1)));
+                  if(!rest.length) {
+                    combinationOfNumbers.push([numbers[i]])
+                  } else {
+                    for(let j = 0; j < rest.length; j++) {
+                        combinationOfNumbers.push([numbers[i]].concat(rest[j]))
+                    }
+                  }
+                }
+                return combinationOfNumbers;
+        }
+
+        let allCombinations = combinations(arrayOfNumbers);
+        let finalCombinations = [];
+        allCombinations.forEach(x => finalCombinations.push(x.join("")));
+        // console.log('finalCombinations :', finalCombinations);
+        let lowestNumber = Math.min(...finalCombinations).toString();
+        // console.log('lowestNumber :', lowestNumber.length);
+        if(lowestNumber.length != n.toString().length){
             return -1;
         }else{
-            return lowestNumber;
+            return Number(lowestNumber);
         }
         
     }
     
   }
 
-
+  //ITS STILL NOT DONE!!!!
 //   console.log('21: ' + nextSmaller(21));
+//   console.log('123456798: ' + nextSmaller(123456798)); //123456789
 //   console.log('531: ' + nextSmaller(531));
-  console.log('1027: ' + nextSmaller(1027));
+//   console.log('1027: ' + nextSmaller(1027));
 //   console.log('9: ' + nextSmaller(9));
 //   console.log('135: ' + nextSmaller(135));
 //   console.log('111: ' + nextSmaller(111));
+
+ //-------------------------------------------------------------------------------------------
+
+
+// Number of trailing zeros of N!
+// zeros(6) = 1
+// # 6! = 1 * 2 * 3 * 4 * 5 * 6 = 720 --> 1 trailing zero
+
+// zeros(12) = 2
+// # 12! = 479001600 --> 2 trailing zeros
+
+function zeros (n) {
+    let allNumbers = [...Array(n+1).keys()];
+    allNumbers.shift();
+    // console.log('allNumbers :', allNumbers);
+    const reducerFunc = (acc,number) => acc * number;
+    let finalNumber = allNumbers.reduce(reducerFunc).toString();
+    console.log('finalNumber :', BigInt(Number(finalNumber)));
+    // for(var i = 0; i < finalNumber.length; i++){
+        // while(finalNumber.length > 0 && finalNumber[finalNumber.length - 1] == "0"){
+            //https://brilliant.org/wiki/trailing-number-of-zeros/
+            let count = 0;
+        if(finalNumber[finalNumber.length - 1] == "0"){
+            count++
+            finalNumber = finalNumber.slice(-1);
+        }
+        // console.log('something: ' + finalNumber[i])
+        //finalNumber.slice(-1)
+    // }
+    return count;
+  }
+
+//   console.log('zeros(0) :', zeros(0));
+//   console.log('zeros(5) :', zeros(5));
+//   console.log('zeros(6) :',  zeros(6));
+  console.log('zeros(30) :', zeros(30));
+
