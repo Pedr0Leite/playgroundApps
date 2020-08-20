@@ -290,3 +290,85 @@ function zeros (n) {
 //   console.log('zeros(6) :',  zeros(6));
 //   console.log('zeros(30) :', zeros(30));
 
+// PaginationHelper
+
+
+function PaginationHelper(collection, itemsPerPage){
+    this.collection = collection;
+    this.itemsPerPage = itemsPerPage;
+  }
+  
+  // returns the number of items within the entire collection
+  PaginationHelper.prototype.itemCount = function() {
+    return this.collection.length;
+  }
+  
+  // returns the number of pages
+  PaginationHelper.prototype.pageCount = function() {
+    return Math.ceil(this.collection.length / this.itemsPerPage);
+  }
+  
+  // returns the number of items on the current page. page_index is zero based.
+  // this method should return -1 for pageIndex values that are out of range
+  PaginationHelper.prototype.pageItemCount = function(p) {
+    if(p < this.pageCount() && (typeof p == 'number') && (p > 0)){
+     let temp = (Math.min(this.itemsPerPage, this.collection.length - p * this.itemsPerPage));
+      return temp;
+    }else{
+      return -1;
+    }
+  }
+  
+  // determines what page an item is on. Zero based indexes
+  // this method should return -1 for itemIndex values that are out of range
+  PaginationHelper.prototype.pageIndex = function(itemIndex) { 
+    let arrCollection = this.collection;
+    let arrIndex = this.collection[itemIndex];
+    let itemsPerPage = this.itemsPerPage;
+  try{
+    var numberOfPage = (itemIndex <= this.itemCount() && itemIndex >= 0 && arrCollection != "") ?
+     (function getIndex(){
+    function split(array, n) {
+  let [...arr]  = array;
+  var res = [];
+    while (arr.length) {
+      res.push(arr.splice(0, n));
+    }
+    return res;
+  }
+  var tempValue = arrIndex;
+  var temp = split(arrCollection, itemsPerPage);
+  //get index
+  const reduceMethod = temp.reduce((acc, arr, index)=>{
+  if(arr.includes(tempValue)){
+    return acc + index
+  }else{
+    return acc
+  }
+  }, 0)
+  return reduceMethod;
+  })()
+     : -1;
+    return numberOfPage;
+  }catch(e){
+    console.log('ERROR: ' + e);
+  }
+  
+  }  
+  
+  var helper = new PaginationHelper(['a','b','c','d','e','f'], 4);
+  // console.log('pageCount: ' + helper.pageCount()); //should == 2
+  // console.log('ItemCount: ' + helper.itemCount()); //should == 6
+//   console.log('pageItemCount: ' + helper.pageItemCount(-1));
+//   console.log('pageItemCount: ' + helper.pageItemCount(0)); //should == 4
+//   console.log('pageItemCount: ' + helper.pageItemCount(1)); // last page - should == 2
+//   console.log('pageItemCount: ' + helper.pageItemCount(2)); // should == -1 since the page is invalid
+//   console.log('pageItemCount: ' + helper.pageItemCount(true));
+//   console.log('pageItemCount: ' + helper.pageItemCount("a"));
+  
+  // // pageIndex takes an item index and returns the page that it belongs on
+  // console.log("pageIndex: " + helper.pageIndex(5)); //should == 1 (zero based index)
+  // console.log("pageIndex: " + helper.pageIndex(2)); //should == 0
+  // console.log("pageIndex: " + helper.pageIndex(20)); //should == -1
+  // console.log("pageIndex: " + helper.pageIndex(-10)); //should == -1
+  
