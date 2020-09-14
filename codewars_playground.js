@@ -186,27 +186,34 @@
 // Sum Strings as Numbers
 // sumStrings('1','2') // => '3'
 
-function sumStrings(a,b) {
-    let n1 = [...a].reverse();
-    let n2 = [...b].reverse();
-    let nextV = 0;
-    let arr = [];
-    if(n1.length < n2.length){
-      for(let i = 0; i < n2.length; i++){
-        let sum = Number(n2[i]) + Number(n1[i]) + nextV;
-        arr.push(sum);
-      }
-      console.log(arr);
-    }else if(n1.length > n2.length){
+// function sumStrings(a,b) {
+//     let n1 = [...a].reverse();
+//     // console.log('n1 :', n1);
+//     let n2 = [...b].reverse();
+//     // console.log('n2 :', n2);
+//     let nextV = 0;
+//     let arr = [];
+//     if(n1.length < n2.length){
+//       for(let i = 0; i < n2.length; i++){
+//         let sum = Number(n2[i]) + Number(n1[i]) + nextV;
+//         if(sum.length > 1){
+//           sum = sum.sumStrings()
+//           }
+//           console.log('sum :', sum);
+//           console.log('nextV :', nextV);
+//         arr.push(sum);
+//       }
+//       console.log(arr);
+//     }else if(n1.length > n2.length){
 
-    }else{
+//     }else{
 
-    }
+//     }
 
     
-}
+// }
 
-console.log(sumStrings('123','4567')); //'579'
+// console.log(sumStrings('123','4567')); //'579'
 // console.log(sumStrings('712569312664357328695151392','8100824045303269669937')); //712577413488402631964821329
 // console.log(Number.MAX_SAFE_INTEGER);
 //ITS STILL NOT DONE!!!!
@@ -552,3 +559,67 @@ console.log(sumStrings('123','4567')); //'579'
 // console.log(berlinClock("19:53:03")); 
 
 //-------------------------------------------------------------------------
+
+// Find the safest places in town
+// Implement the function advice(agents, n) where
+
+// agents is an array of agent coordinates.
+// n defines the size of the city that Bassi needs to hide in, in other words the side length of the square grid.
+// The function should return a list of coordinates that are the furthest away (by Manhattan distance) from all agents.
+
+// Edge cases:
+
+// If there is an agent on every grid cell, there is no safe space, so return an empty list.
+// If there are no agents, then every cell is a safe spaces, so return all coordinates.
+// if n is 0, return an empty list.
+// If agent coordinates are outside of the map, they are simply not considered.
+// There are no duplicate agents on the same square.
+// var testArr = [[2,5], [3,6], [5,6], [1,1]];
+
+// function advice(agents, n) {
+//   if(n === 0 || agents.length === n*n) return [];
+//   const allCoords = buildCoordinates(n);
+//   if(agents.length === 0 ) return buildCoordinates(n);
+//   let test  = distanceBetweenAgents(agents)
+//   return test;
+
+// }
+
+// function distanceBetweenAgents(agents){
+//   let distance = [];
+//   agents.forEach((a, index) =>{
+//     for(var i = index + 1; i < agents.length; i++){
+//       distance.push((Math.abs(a[0] - agents[i][0]) +
+//       Math.abs(a[1] - agents[i][1])));
+//      }
+//   })
+//   return distance;
+// }
+
+
+
+// function buildCoordinates(n){
+//   let array = [];
+//   for(var x = 0; x < n; x++){
+//     for(var y = 0; y < n; y++){
+//       array.push([x,y]);
+//     }
+//   }
+//   return array;
+// }
+
+// console.log(advice(testArr, 8));
+
+//-------------------------------------------------------------------------
+// 16+18=214 - DO IT WITH LESS THAN 21 lines
+// For this Kata you will have to forget how to add two numbers together.
+
+// The best explanation on what to do for this kata is this meme:
+
+function add(num1, num2) {
+  let x = [...num1.toString()];
+  let y = [...num2.toString()];
+  console.log(`${x} and ${y}`);
+}
+
+console.log(add(1222, 30277));

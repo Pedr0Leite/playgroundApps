@@ -11,5 +11,14 @@
   "dependencies": {
     "axios": "^0.19.2",
     "puppeteer": "^2.1.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pedr0Leite/playgroundApps.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Pedr0Leite/playgroundApps/issues"
+  },
+  "homepage": "https://github.com/Pedr0Leite/playgroundApps#readme"
 }
